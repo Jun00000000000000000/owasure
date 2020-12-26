@@ -43,18 +43,21 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    num=0;
     notes = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
                 text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
                 actions=[
                     PostbackAction(
+                        num=1,
                         label='ON',
                         display_text='電気を付けました',
                         data='action=buy&itemid=1',
                         #url=requests.get('https://192.168.10.130/H')
                     ),
                     MessageAction(
+                        num=2,
                         label='OFF',
                         text='電気を消しました',
                         #url=requests.get('https://192.168.10.130/L')
@@ -62,7 +65,7 @@ def handle_message(event):
                 ]
             )
     )
-    if label=='ON':
+    if num=='ON':
         requests.get('https://192.168.10.130/H');
     else:
         requests.get('https://192.168.10.130/L');
