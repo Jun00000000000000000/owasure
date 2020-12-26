@@ -1,4 +1,4 @@
-import Flask, request, abort
+from flask import Flask, request, abort
 import os
 
 from linebot import (
