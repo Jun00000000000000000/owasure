@@ -1,5 +1,6 @@
 from flask import Flask, request, abort
 import os
+import requests
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -45,16 +46,18 @@ def handle_message(event):
     notes = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
-                text='部屋の電気が付けっぱなしになっていませんか?',
+                text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
                 actions=[
                     PostbackAction(
                         label='ON',
                         display_text='電気を付けました',
-                        data='action=buy&itemid=1'
+                        data='action=buy&itemid=1',
+                        get_url_info=requests.get('https://192.168.10.130/H')
                     ),
                     MessageAction(
                         label='OFF',
                         text='電気を消しました'
+                        get_url_info=requests.get('https://192.168.10.130/L')
                     )
                 ]
             )
@@ -63,7 +66,6 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         notes)
-
 
 if __name__ == "__main__":
 #    app.run()
