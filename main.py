@@ -45,16 +45,16 @@ def handle_message(event):
     notes = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
-                text='Are you sure?',
+                text='部屋の電気が付けっぱなしになっていませんか?',
                 actions=[
                     PostbackAction(
-                        label='postback',
-                        display_text='postback text',
+                        label='ON',
+                        display_text='電気を付けました',
                         data='action=buy&itemid=1'
                     ),
                     MessageAction(
-                        label='message',
-                        text='message text'
+                        label='OFF',
+                        text='電気を消しました'
                     )
                 ]
             )
