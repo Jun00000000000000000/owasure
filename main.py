@@ -52,17 +52,21 @@ def handle_message(event):
                         label='ON',
                         display_text='電気を付けました',
                         data='action=buy&itemid=1',
-                        requests.get('https://192.168.10.130/H')
+                        #url=requests.get('https://192.168.10.130/H')
                     ),
                     MessageAction(
                         label='OFF',
                         text='電気を消しました',
-                        requests.get('https://192.168.10.130/L')
+                        #url=requests.get('https://192.168.10.130/L')
                     )
                 ]
             )
     )
-
+    if label=='ON':
+        requests.get('https://192.168.10.130/H');
+    else:
+        requests.get('https://192.168.10.130/L');
+    
     line_bot_api.reply_message(
         event.reply_token,
         notes)
