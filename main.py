@@ -56,7 +56,7 @@ def handle_message(event):
                     ),
                     MessageAction(
                         label='OFF',
-                        text='電気を消しました'
+                        text='電気を消しました',
                         get_url_info=requests.get('https://192.168.10.130/L')
                     )
                 ]
