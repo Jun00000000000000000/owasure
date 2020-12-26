@@ -58,7 +58,7 @@ def handle_message(event):
                     MessageAction(
                         label='OFF',
                         text='電気を消しました',
-                        uri='https://192.168.10.130/L/'
+                        uri='https://192.168.10.130/'
                     )
                 ]
             )
