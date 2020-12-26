@@ -53,12 +53,12 @@ def handle_message(event):
                         label='ON',
                         display_text='電気を付けました',
                         data='action=buy&itemid=1',
-                        uri='192.168.10.130/H/'
+                        uri='192.168.10.130'
                     ),
                     MessageAction(
                         label='OFF',
                         text='電気を消しました',
-                        url='192.168.10.130/L/'
+                        url='https://192.168.10.130/L/'
                     )
                 ]
             )
