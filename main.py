@@ -52,12 +52,12 @@ def handle_message(event):
                         label='ON',
                         display_text='電気を付けました',
                         data='action=buy&itemid=1',
-                        get_url_info=requests.get('https://192.168.10.130/H')
+                        requests.get('https://192.168.10.130/H')
                     ),
                     MessageAction(
                         label='OFF',
                         text='電気を消しました',
-                        get_url_info=requests.get('https://192.168.10.130/L')
+                        requests.get('https://192.168.10.130/L')
                     )
                 ]
             )
