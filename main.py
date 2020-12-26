@@ -59,14 +59,10 @@ def handle_message(event):
                 ]
             )
     )
-    #messages = TemplateSendMessage(
-    #    alt_text='template',
-    #    template=ConfirmTemplate(columns=notes),
-    #)
-    line_bot_api.push_message(reply_token, TextSendMessage(text='Hello World!'))
-    #line_bot_api.reply_message(
-    #    event.reply_token,
-    #    messages=messages)
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        notes)
 
 
 if __name__ == "__main__":
