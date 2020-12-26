@@ -1,4 +1,4 @@
-CarouselColumnfrom flask import Flask, request, abort
+import Flask, request, abort
 import os
 
 from linebot import (
