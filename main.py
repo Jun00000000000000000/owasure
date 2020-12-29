@@ -62,28 +62,19 @@ def handle_message(event):
             template=ConfirmTemplate(
                 text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
                 actions=[
-                    PostbackAction(
+                    URIAction(
+                        type="uri",
                         label='ON',
-                        display_text='電気を付けました',
-                        data='action=buy&itemid=1',
-                        uri='https://192.168.10.130'
+                        uri='https://192.168.10.130/H/'
                     ),
-                    MessageAction(
+                    URIAction(
+                        type="uri",
                         label='OFF',
-                        text='電気を消しました',
-                        uri='https://192.168.10.130/L/'
+                        uri='https://192.168.10.130/F/'
                     )
                 ]
             )
     )
-    if text == "ToI! ON!":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=dry[np.random.randint(2)]))
-        state = 1
-
-    elif text == "ToI! OFF!":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=cool[np.random.randint(2)]))
-        state = 2
-    
     line_bot_api.reply_message(
         event.reply_token,
         notes)
