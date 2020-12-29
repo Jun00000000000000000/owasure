@@ -41,9 +41,22 @@ def callback():
 
     return 'OK'
 
+global state
+state=0
+@app.route("/IoT", methods=["GET"])
+def handle_get_request():
+    global state
+
+    tmp = state
+    state = 0
+    print("accept_"+str(tmp))
+    line_bot_api.push_message("user_id",TextSendMessage(text="accept_"+str(tmp)))
+
+    return str(tmp)
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    
+    global state
     notes = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
@@ -58,11 +71,19 @@ def handle_message(event):
                     MessageAction(
                         label='OFF',
                         text='電気を消しました',
-                        url='https://192.168.10.130/L/'
+                        uri='https://192.168.10.130/L/'
                     )
                 ]
             )
     )
+    if text == "ToI! ON!":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=dry[np.random.randint(2)]))
+        state = 1
+
+    elif text == "ToI! OFF!":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=cool[np.random.randint(2)]))
+        state = 2
+    
     line_bot_api.reply_message(
         event.reply_token,
         notes)
