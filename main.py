@@ -73,6 +73,7 @@ def handle_message(event):
                         label='OFF',
                         uri='https://192.168.10.130/F/'
                     )
+                    )
                 ]
             )
     )
