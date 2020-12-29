@@ -65,12 +65,12 @@ def handle_message(event):
                     URIAction(
                         type="uri",
                         label='ON',
-                        uri='192.168.10.130/'
+                        uri='192.168.10.130'
                     ),
                     URIAction(
                         type="uri",
                         label='OFF',
-                        uri='192.168.10.130/L/'
+                        uri='www.google.com'
                     )
                 ]
             )
