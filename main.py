@@ -43,7 +43,7 @@ def callback():
 
 global state
 state=0
-@app.route("/IoT", methods=["GET"])
+@app.route("/ToI", methods=["GET"])
 def handle_get_request():
     global state
 
