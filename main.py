@@ -62,7 +62,7 @@ def handle_message(event):
             template=ConfirmTemplate(
                 text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
                 actions=[
-                    PostbackAction(
+                    
                     URIAction(
                         type="uri",
                         label='ON',
@@ -73,7 +73,7 @@ def handle_message(event):
                         label='OFF',
                         uri='https://192.168.10.130/F/'
                     )
-                    )
+                    
                 ]
             )
     )
