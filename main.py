@@ -62,18 +62,16 @@ def handle_message(event):
             template=ConfirmTemplate(
                 text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
                 actions=[
-                    
                     URIAction(
                         type="uri",
                         label='ON',
-                        uri='https://192.168.10.130/'
+                        uri='192.168.10.130/'
                     ),
                     URIAction(
                         type="uri",
                         label='OFF',
-                        uri='https://www.google.com'
+                        uri='192.168.10.130/L/'
                     )
-                    
                 ]
             )
     )
