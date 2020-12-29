@@ -62,6 +62,12 @@ def handle_message(event):
             template=ConfirmTemplate(
                 text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
                 actions=[
+                    PostbackAction(
+                        label='ON',
+                        display_text='電気を付けました',
+                        data='action=buy&itemid=1',
+                        uri='https://192.168.10.130'
+                    ),
                     URIAction(
                         type="uri",
                         label='ON',
