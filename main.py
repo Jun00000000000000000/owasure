@@ -65,12 +65,12 @@ def handle_message(event):
                     URIAction(
                         type="uri",
                         label='ON',
-                        uri='192.168.10.130'
+                        uri='www.google.com'
                     ),
                     URIAction(
                         type="uri",
                         label='OFF',
-                        uri='eromanga-select.com/%E6%B0%B4%E5%B9%B3%E7%B7%9A/%E3%80%90%E3%82%A8%E3%83%AD%E6%BC%AB%E7%94%BB%E3%80%91%E5%B7%A8%E4%B9%B3%E5%B9%BC%E3%81%AA%E3%81%98%E3%81%BF%E3%81%8B%E3%82%89%E9%A0%BC%E3%81%BE%E3%82%8C%E3%81%A6%E3%82%AA%E3%83%8A%E3%83%8B%E3%83%BC/'
+                        uri='www.google.com'
                     )
                 ]
             )
