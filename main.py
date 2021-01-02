@@ -76,7 +76,7 @@ def handle_message(event):
             )
     )
     line_bot_api.push_message(
-        event.reply_token,
+        "Ufe327b70ea9290e56a4a2e7fabd00165",
         notes)
 
 if __name__ == "__main__":
