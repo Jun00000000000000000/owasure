@@ -57,6 +57,22 @@ def handle_get_request():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global state
+    confirm_template_message=TemplateSendMessage(
+        alt_text='Confirm template',
+        template=ConfirmTemplate(
+            text="部屋の電気が付けっぱなしになっていませんか？照明のON/OFFを選択してください",
+            action=[
+                MessageAction(
+                    label='OFF',
+                    text='消します'
+                ),
+                MessageAction(
+                    label="ON",
+                    text='消しません'
+                )
+            ]
+        )
+    )
     if text == "消します":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="貴様、見ているなッ！"))
         state = 1
