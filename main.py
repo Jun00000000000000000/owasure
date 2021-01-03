@@ -57,37 +57,36 @@ def handle_get_request():
 
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2():
-    handle_message(event)
-    line_bot_api.reply_message(event.reply_token,messages=confirm_template_message)
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    text=event.message.text
-    global state
-    confirm_template_message = TemplateSendMessage(
-        alt_text='Confirm template',
-        template=ConfirmTemplate(
-            text='部屋の電気が付けっぱなしになっていませんか？照明のON/OFFを選択してください',
-            actions=[
-                MessageAction(
-                    label='ON',
-                    text='消しません'
-                ),
-                MessageAction(
-                    label='OFF',
-                    text='消します'
-                )
-            ]
-        )
-    )
-    if text == "消します":
-        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
-        state = 1
-    elif text == "消しません":
-        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はONの状態です！"))
-        state = 2
-    else:
-        state = 0
+	@handler.add(MessageEvent, message=TextMessage)
+	def handle_message(event):
+	    text=event.message.text
+	    global state
+	    confirm_template_message = TemplateSendMessage(
+	        alt_text='Confirm template',
+	        template=ConfirmTemplate(
+	            text='部屋の電気が付けっぱなしになっていませんか？照明のON/OFFを選択してください',
+	            actions=[
+	                MessageAction(
+	                    label='ON',
+	                    text='消しません'
+	                ),
+	                MessageAction(
+	                    label='OFF',
+	                    text='消します'
+	                )
+	            ]
+	        )
+	    )
+	    if text == "消します":
+	        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
+	        state = 1
+	    elif text == "消しません":
+	        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はONの状態です！"))
+	        state = 2
+	    else:
+	        state = 0
+
 
 if __name__ == "__main__":
 #    app.run()
