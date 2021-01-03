@@ -62,7 +62,7 @@ def handle_message(event):
         alt_text='Confirm template',
         template=ConfirmTemplate(
             text='部屋の電気が付けっぱなしになっていませんか？照明のON/OFFを選択してください',
-            action=[
+            actions=[
                 MessageAction(
                     label='OFF',
                     text='消します'
