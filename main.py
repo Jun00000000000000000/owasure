@@ -57,16 +57,17 @@ def handle_get_request():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global state
-    if text == "ToI! 除湿して!":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=dry[np.random.randint(2)]))
+    if text == "消します":
+        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="貴様、見ているなッ！"))
         state = 1
-
-    elif text == "ToI! 冷房して!":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=cool[np.random.randint(2)]))
-        state = 2
-
+    elif text == "[IFTTT] ついてます":
+        line_bot_api.reply_message(event.reply_token,messages=confirm_template_message)
+        state = 0
+    elif text == "消しません":
+        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="気のせいか..."))
+        state = 0
     else:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=text))
+        state = 0
 if __name__ == "__main__":
 #    app.run()
     port = int(os.getenv("PORT",8000))
