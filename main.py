@@ -77,13 +77,13 @@ def handle_message(event):
     )
     if text == "消します":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="貴様、見ているなッ！"))
-        state = 2
+        state = 1
     elif text=="test":
         line_bot_api.reply_message(event.reply_token,messages=confirm_template_message)
-        state = 1
+        state = 0
     elif text == "消しません":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="気のせいか..."))
-        state = 1
+        state = 2
     else:
         state = 0
 
