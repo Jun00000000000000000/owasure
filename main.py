@@ -57,7 +57,7 @@ def handle_get_request():
 
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2():
-    handle_message(event):
+    handle_message(event)
     line_bot_api.reply_message(event.reply_token,messages=confirm_template_message)
 
 @handler.add(MessageEvent, message=TextMessage)
