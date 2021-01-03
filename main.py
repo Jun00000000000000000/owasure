@@ -60,14 +60,14 @@ def handle_message(event):
     if text == "消します":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="貴様、見ているなッ！"))
         state = 1
-    elif text == "[IFTTT] ついてます":
+    elif text == "ついてます":
         line_bot_api.reply_message(event.reply_token,messages=confirm_template_message)
-        state = 0
+        state = 1
     elif text == "消しません":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="気のせいか..."))
-        state = 0
+        state = 1
     else:
-        state = 0
+        state = 1
 if __name__ == "__main__":
 #    app.run()
     port = int(os.getenv("PORT",8000))
