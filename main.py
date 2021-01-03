@@ -57,28 +57,16 @@ def handle_get_request():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global state
-    notes = TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text='部屋の電気が付けっぱなしになっていませんか?照明のON/OFFを選択してください',
-                actions=[
-                    URIAction(
-                        type="uri",
-                        label='ON',
-                        uri='www.google.com'
-                    ),
-                    URIAction(
-                        type="uri",
-                        label='OFF',
-                        uri='www.google.com'
-                    )
-                ]
-            )
-    )
-    line_bot_api.push_message(
-        "Ufe327b70ea9290e56a4a2e7fabd00165",
-        notes)
+    if text == "ToI! 除湿して!":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=dry[np.random.randint(2)]))
+        state = 1
 
+    elif text == "ToI! 冷房して!":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=cool[np.random.randint(2)]))
+        state = 2
+
+    else:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=text))
 if __name__ == "__main__":
 #    app.run()
     port = int(os.getenv("PORT",8000))
