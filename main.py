@@ -57,7 +57,7 @@ def handle_get_request():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global state
-    confirm_template_message=TemplateSendMessage(
+    confirm_template_message = TemplateSendMessage(
         alt_text='Confirm template',
         template=ConfirmTemplate(
             text="部屋の電気が付けっぱなしになっていませんか？照明のON/OFFを選択してください",
