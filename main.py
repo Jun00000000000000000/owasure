@@ -58,7 +58,7 @@ def handle_get_request():
 
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2(event):
-    tki=tk.Tk()
+    tki=tk.tk()
     confirm_template_message = TemplateSendMessage(
         alt_text='Confirm template',
         template=ConfirmTemplate(
