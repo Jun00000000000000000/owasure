@@ -79,7 +79,7 @@ def handle_get_request2(event):
     #time.sleep(20)
     #TimeCounter()
 
-def TimeCounter(event):
+def TimeCounter():
     if state==0:
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
         state = 1
