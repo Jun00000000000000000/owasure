@@ -80,9 +80,7 @@ def handle_get_request2(event):
     tkin.after(20,TimeCounter)
 
 def TimeCounter(event):
-    if state==1 or state==2:
-        break;
-    elif state==0:
+    if state==0:
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
         state = 1
 
