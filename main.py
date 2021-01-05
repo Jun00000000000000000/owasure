@@ -58,7 +58,7 @@ def handle_get_request():
 
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2(event):
-    tkin=tk.Tk()
+    tki=tk.Tk()
     confirm_template_message = TemplateSendMessage(
         alt_text='Confirm template',
         template=ConfirmTemplate(
@@ -77,7 +77,7 @@ def handle_get_request2(event):
     )
     line_bot_api.push_message(event.reply_token,messages=confirm_template_message)
     #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
-    tkin.after(20,TimeCounter)
+    tki.after(20,TimeCounter)
 
 def TimeCounter(event):
     if state==0:
