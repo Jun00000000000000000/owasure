@@ -49,11 +49,11 @@ def handle_get_request():
     global state
 
     tmp = state
-    state = 0 #tmpの値はstateの値が変わっても変化していないことに注意
+    state = 0
+    #tmpの値はstateの値が変わっても変化していないことに注意
     if tmp!=0:
         print("accept_"+str(tmp))
         #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(tmp)))
-
     return str(tmp)
 
 @app.route("/Sensor",methods=["GET"])
