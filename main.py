@@ -11,6 +11,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,TemplateSendMessage,CarouselTemplate, CarouselColumn, ConfirmTemplate, PostbackAction, MessageAction, URIAction
     )
+import tkinter
 
 app = Flask(__name__)
 
@@ -48,14 +49,13 @@ def handle_get_request():
     global state
 
     tmp = state
-    state = 0
+    state = 0 #tmpの値はstateの値が変わっても変化していないことに注意
     if tmp!=0:
         print("accept_"+str(tmp))
         #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(tmp)))
 
     return str(tmp)
 
-@handler.add(MessageEvent, message=TextMessage)
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2(event):
     confirm_template_message = TemplateSendMessage(
@@ -76,6 +76,18 @@ def handle_get_request2(event):
     )
     line_bot_api.push_message(event.reply_token,messages=confirm_template_message)
     #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
+    root.after(60,TimeCounter)
+return confirm_template_message
+
+def TimeCounter():
+    if state==1 or state==2:
+        break
+    elif state==0:
+        line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
+        state = 1
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
     text=event.message.text
     global state
     if text == "消します":
@@ -86,10 +98,6 @@ def handle_get_request2(event):
         state = 2
     else:
         state = 0
-
-#@handler.add(MessageEvent, message=TextMessage)
-#def handle_message(event):
-
 
 if __name__ == "__main__":
 #    app.run()
