@@ -11,7 +11,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,TemplateSendMessage,CarouselTemplate, CarouselColumn, ConfirmTemplate, PostbackAction, MessageAction, URIAction
     )
-import tkinter as tk
+import time
 
 app = Flask(__name__)
 
@@ -58,7 +58,6 @@ def handle_get_request():
 
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2(event):
-    tki=tk.tk()
     confirm_template_message = TemplateSendMessage(
         alt_text='Confirm template',
         template=ConfirmTemplate(
@@ -77,7 +76,7 @@ def handle_get_request2(event):
     )
     line_bot_api.push_message(event.reply_token,messages=confirm_template_message)
     #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
-    tki.after(20,TimeCounter)
+    time.sleep(20)
 
 def TimeCounter(event):
     if state==0:
