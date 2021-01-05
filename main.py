@@ -75,7 +75,7 @@ def handle_get_request2():
     )
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
 
-@handler.add(MessageEvent, message=TextMessage)
+#@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text=event.message.text
     global state
