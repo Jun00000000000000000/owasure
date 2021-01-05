@@ -77,6 +77,7 @@ def handle_get_request2():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    text=event.message.text
     global state
     if text == "消します":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
