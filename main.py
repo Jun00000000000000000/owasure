@@ -74,8 +74,8 @@ def handle_get_request2(event):
             ]
         )
     )
-    line_bot_api.push_message(event.reply_token,messages=confirm_template_message)
-    #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
+    #line_bot_api.push_message(event.reply_token,messages=confirm_template_message)
+    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
     #time.sleep(20)
     #TimeCounter()
 
