@@ -82,6 +82,7 @@ def handle_get_request2():
 
 
 def TimeCounter():
+    global state
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="呼ばれました"))
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(state)))
     if state==0:
