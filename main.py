@@ -83,7 +83,7 @@ def handle_message(event):
     if text == "消します" or "消して" or "電気を消して" or "電気をOFFにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
         state = 1
-    elif text == "消しません" or "消さない" or "今朝ない" or "電気をOFFにして":
+    elif text == "消しません" or "消さない" or "今朝ない" or "電気をONにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はONの状態です！"))
         state = 2
     else:
