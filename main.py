@@ -79,12 +79,11 @@ def handle_get_request2():
     time.sleep(10)
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="10秒経ちました"))
     TimeCounter()
-
+global num =0
 def TimeCounter():
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="呼ばれました"))
-    global state
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(state)))
-    if state==0:
+    if num==0:
        line_bot_api.reply_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
        state = 1
 
@@ -100,7 +99,7 @@ def handle_message(event):
         state = 2
     else:
         state = 0
-
+return num=state
 
 if __name__ == "__main__":
 #    app.run()
