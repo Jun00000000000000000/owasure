@@ -76,18 +76,18 @@ def handle_get_request2():
     )
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
 
-    time.sleep(10)
-    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="10秒経ちました"))
-    TimeCounter()
+#    time.sleep(10)
+#    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="10秒経ちました"))
+#    TimeCounter()
 
 
-def TimeCounter():
-    global state
-    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="呼ばれました"))
-    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(state)))
-    if state==0:
-       line_bot_api.reply_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
-       state = 1
+#def TimeCounter():
+#    global state
+#    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="呼ばれました"))
+#    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(state)))
+#    if state==0:
+#       line_bot_api.reply_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
+#       state = 1
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
