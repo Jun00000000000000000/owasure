@@ -76,8 +76,8 @@ def handle_get_request2():
     )
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
 
-    time.sleep(20)
-    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages="20秒経ちました！")
+    time.sleep(10)
+    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages="10秒経ちました！")
     TimeCounter()
 
 def TimeCounter():
