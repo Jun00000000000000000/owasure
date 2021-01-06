@@ -55,6 +55,7 @@ def handle_get_request():
 
     return str(tmp)
 
+@handler.add(MessageEvent, message=TextMessage)
 @app.route("/Sensor",methods=["GET"])
 def handle_get_request2(event):
     confirm_template_message = TemplateSendMessage(
