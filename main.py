@@ -77,11 +77,11 @@ def handle_get_request2():
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
 
     time.sleep(10)
-    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages="10秒経ちました！")
+    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="10秒経ちました"))
     TimeCounter()
 
 def TimeCounter():
-    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages="呼ばれました！")
+    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="呼ばれました"))
     if state==0:
        line_bot_api.reply_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
        state = 1
