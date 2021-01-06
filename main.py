@@ -73,7 +73,7 @@ def send_button():
             ]
         )
     )
-    line_bot_api.push_message("U045dd3598915d36e27c3e651b83479b2",messages=confirm_template_message)
+    #line_bot_api.push_message("U045dd3598915d36e27c3e651b83479b2",messages=confirm_template_message)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
