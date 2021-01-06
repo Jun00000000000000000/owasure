@@ -11,6 +11,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,TemplateSendMessage,CarouselTemplate, CarouselColumn, ConfirmTemplate, PostbackAction, MessageAction, URIAction
     )
+import time
 
 app = Flask(__name__)
 
@@ -75,15 +76,22 @@ def handle_get_request2():
     )
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
 
+    time.sleep(20)
+    TimeCounter()
+
+def TimeCounter():
+    if state==0:
+       line_bot_api.reply_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
+       state = 1
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text=event.message.text
     global state
-    if text == "消します" or text=="消して" or text=="電気を消して" or text=="電気をOFFにして":
+    if text == "消します" or text=="消して" or text=="電気を消して" or text=="電気をオフにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
         state = 1
-    elif text == "消しません" or text=="消さない" or text=="今朝ない" or text=="電気をONにして":
+    elif text == "消しません" or text=="消さない" or text=="今朝ない" or text=="電気をオンにして" or text=="電気をつけて":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はONの状態です！"))
         state = 2
     else:
