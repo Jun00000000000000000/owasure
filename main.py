@@ -75,14 +75,15 @@ def handle_get_request2():
     )
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=confirm_template_message)
 
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text=event.message.text
     global state
-    if text == "消します":
+    if text == "消します" or "消して" or "電気を消して" or "電気をOFFにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
         state = 1
-    elif text == "消しません":
+    elif text == "消しません" or "消さない" or "今朝ない" or "電気をOFFにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はONの状態です！"))
         state = 2
     else:
