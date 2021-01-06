@@ -56,7 +56,7 @@ def handle_get_request():
     return str(tmp)
 
 @app.route("/Sensor",methods=["GET"])
-def handle_get_request2():
+def handle_get_request2(event):
     confirm_template_message = TemplateSendMessage(
         alt_text='Confirm template',
         template=ConfirmTemplate(
@@ -73,7 +73,7 @@ def handle_get_request2():
             ]
         )
     )
-    line_bot_api.push_message("1655552813",messages=confirm_template_message)
+    line_bot_api.push_message("event.reply_token",messages=confirm_template_message)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
