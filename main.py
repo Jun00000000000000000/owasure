@@ -83,6 +83,7 @@ def handle_get_request2():
 def TimeCounter():
     line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="呼ばれました"))
     global state
+    line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(state)))
     if state==0:
        line_bot_api.reply_message("Ufe327b70ea9290e56a4a2e7fabd00165",messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
        state = 1
