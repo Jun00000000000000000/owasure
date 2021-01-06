@@ -80,10 +80,10 @@ def handle_get_request2():
 def handle_message(event):
     text=event.message.text
     global state
-    if text == "消します" or "消して" or "電気を消して" or "電気をOFFにして":
+    if text == "消します" or text=="消して" or text=="電気を消して" or text=="電気をOFFにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はOFFの状態です！"))
         state = 1
-    elif text == "消しません" or "消さない" or "今朝ない" or "電気をONにして":
+    elif text == "消しません" or text=="消さない" or text=="今朝ない" or text=="電気をONにして":
         line_bot_api.reply_message(event.reply_token,messages=TextSendMessage(text="部屋の電気はONの状態です！"))
         state = 2
     else:
