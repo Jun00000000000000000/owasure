@@ -51,7 +51,7 @@ def handle_get_request():
     state = 0
     if tmp!=0:
         print("accept_"+str(tmp))
-        #line_bot_api.push_message("Ufe327b70ea9290e56a4a2e7fabd00165",TextSendMessage(text="accept_"+str(tmp)))
+        #line_bot_api.push_message("user_id",TextSendMessage(text="accept_"+str(tmp)))
 
     return str(tmp)
 
@@ -73,7 +73,7 @@ def send_button():
             ]
         )
     )
-    line_bot_api.push_message("U045dd3598915d36e27c3e651b83479b2",messages=confirm_template_message)
+    line_bot_api.push_message("user_id",messages=confirm_template_message)
     return confirm_template_message
 
 @handler.add(MessageEvent, message=TextMessage)
